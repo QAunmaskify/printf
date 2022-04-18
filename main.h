@@ -3,6 +3,7 @@
 #define fd 1
 
 #include <limits.h>
+#include <string.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,5 +25,6 @@ typedef struct format
 int _printf(const char *, ...);
 int (*get_format(char))(va_list);
 int print_c(va_list);
+int print_str(va_list);
 
 #endif

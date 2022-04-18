@@ -20,8 +20,21 @@ int print_c(va_list c)
 
 
 /**
- * string - prints array of characters
- * @str - parameter to print
+ * print_str - prints array of characters
+ * @s: parameter to print
  *
  * Return: number of printed character
  */
+int print_str(va_list s)
+{
+	int nbyte, strlent;
+	char *str = va_arg(s, char *);
+
+	strlent = strlen(str);
+	nbyte = write(fd, str, strlent);
+
+	if (nbyte)
+		return (strlent);
+
+	return (0);
+}

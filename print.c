@@ -23,6 +23,9 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 				length += get_format(*format)(ap);
 
+			if (*format == 's')
+				length += get_format(*format)(ap);
+
 			format++;
 		}
 
