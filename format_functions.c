@@ -4,7 +4,7 @@
  * character - prints single character
  * @c: parameter to print
  *
- * Return: number of printed character 
+ * Return: number of printed character
  */
 int print_c(va_list c)
 {
@@ -16,7 +16,6 @@ int print_c(va_list c)
 		return (1);
 
 	return (0);
-	
 }
 
 
@@ -24,5 +23,5 @@ int print_c(va_list c)
  * string - prints array of characters
  * @str - parameter to print
  *
- * Return: void (nothing)
+ * Return: number of printed character
  */
