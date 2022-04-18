@@ -1,11 +1,28 @@
 #ifndef MAIN_H
 #define MAIN_H
+#define fd 1
 
-#include <stdio.h>
 #include <limits.h>
 #include <stdarg.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+
+
+/**
+ * struct format - Struct format
+ *
+ * @specifier: format string
+ * @f: The function associated
+ */
+typedef struct format
+{
+	char specifier;
+	int (*f)(va_list);
+} f_t;
 
 int _printf(const char *, ...);
+int (*get_format(char))(va_list);
+int print_c(va_list);
 
 #endif
