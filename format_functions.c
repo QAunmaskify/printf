@@ -18,23 +18,6 @@ int print_c(va_list c)
 	return (0);
 }
 
-/**
- * percent - prints single character
- * @c: parameter to print
- *
- * Return: number of printed character
- */
-int percent(va_list c)
-{
-	char ch = va_arg(c, int);
-	int nbyte = write(fd, &ch, sizeof(char));
-
-	if (nbyte)
-		return (1);
-
-	return (0);
-}
-
 
 /**
  * print_str - prints array of characters

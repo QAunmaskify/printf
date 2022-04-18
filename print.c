@@ -12,6 +12,9 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int length = 0;
 
+	if (!format)
+		return (-1);
+
 	va_start(ap, format);
 
 	while (*format)
@@ -20,27 +23,35 @@ int _printf(const char *format, ...)
 		{
 			format++;
 
-			if (*format == 'c')
-				length += get_format(*format)(ap);
-
-			if (*format == 's')
-				length += get_format(*format)(ap);
-
 			if (*format == '%')
-				length += get_format(*format)(ap);
+			{
+				_putchar('%');
+				length++;
+			}
+
+			else if (*format == '\0')
+				return (-1);
+
+			else if (*format)
+			{
+				if (get_format(*format) != NULL)
+					length += get_format(*format)(ap);
+
+				else
+					return (0);
+			}
 
 			format++;
 		}
 
 		else
 		{
-			write(1, format, 1);
+			_putchar(*format);
 			format++;
 
 			length++;
 		}
 	}
-
 	va_end(ap);
 
 	return (length);
