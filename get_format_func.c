@@ -11,6 +11,7 @@ int (*get_format(char y))(va_list)
 	f_t format[] = {
 		{'c', print_c},
 		{'s', print_str},
+		{'%', percent},
 		{'\0', NULL}
 	};
 
