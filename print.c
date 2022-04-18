@@ -35,6 +35,12 @@ int _printf(const char *format, ...)
 			else if (get_format(*format) != NULL)
 				length += get_format(*format)(ap);
 
+			else
+			{
+				_putchar(*format);
+				length++;
+			}
+
 			format++;
 		}
 
