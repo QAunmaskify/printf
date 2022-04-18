@@ -32,14 +32,8 @@ int _printf(const char *format, ...)
 			else if (*format == '\0')
 				return (-1);
 
-			else if (*format)
-			{
-				if (get_format(*format) != NULL)
-					length += get_format(*format)(ap);
-
-				else
-					return (0);
-			}
+			else if (get_format(*format) != NULL)
+				length += get_format(*format)(ap);
 
 			format++;
 		}
