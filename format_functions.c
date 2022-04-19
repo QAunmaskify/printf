@@ -8,14 +8,11 @@
  */
 int print_c(va_list c)
 {
-	char letter = va_arg(c, int);
 
-	int nbyte = write(fd, &letter, sizeof(char));
+	int nbyte = _putchar(va_arg(c, int));
 
-	if (nbyte)
-		return (1);
 
-	return (0);
+	return (nbyte);
 }
 
 
@@ -27,14 +24,25 @@ int print_c(va_list c)
  */
 int print_str(va_list s)
 {
-	int nbyte, strlent;
+	int nbyte = 0;
 	char *str = va_arg(s, char *);
 
-	strlent = strlen(str);
-	nbyte = write(fd, str, strlent);
+	if (str != NULL)
+	{
+		while (*str)
+		{
+			nbyte += _putchar(*str);
+			str++;
 
-	if (nbyte)
-		return (strlent);
+		}
 
-	return (0);
+	}
+	else
+	{
+		write(fd, "(nil)", 5);
+		nbyte = 5;
+	}
+
+
+	return (nbyte);
 }
