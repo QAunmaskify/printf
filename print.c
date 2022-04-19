@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 			}
 
 			else
-				length += _putchar(format[i]);
+				_putchar(format[i]);
 
 			i++;
 		}
