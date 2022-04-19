@@ -11,39 +11,39 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 	int length = 0;
+	int i = 0;
 
 	if (!format)
 		return (-1);
 
 	va_start(ap, format);
 
-	while (*format)
+	while (format[i] != '\0')
 	{
-		if (*format == '%')
+		if (format[i] != '%')
 		{
-			format++;
-
-			if (*format == '%')
-			{
-				_putchar('%');
-				length++;
-			}
-
-			else if (*format == '\0')
-				return (-1);
-
-			else if (get_format(*format) != NULL)
-				length += get_format(*format)(ap);
-
-			format++;
+			length += _putchar(format[i]);
+			i++;
 		}
 
 		else
 		{
-			_putchar(*format);
-			format++;
+			if (format[i + 1] == '%')
+			{
+				length += _putchar('%');
+				i++;
+			}
 
-			length++;
+			else if (get_format(format[i + 1]) != NULL)
+			{
+				length += get_format(format[i + 1])(ap);
+				i++;
+			}
+
+			else
+				length += _putchar(format[i]);
+
+			i++;
 		}
 	}
 	va_end(ap);

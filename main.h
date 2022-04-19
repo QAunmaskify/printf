@@ -24,8 +24,9 @@ typedef struct format
 
 int _printf(const char *, ...);
 int (*get_format(char))(va_list);
-int print_c(va_list);
+int print_char(va_list);
 int _putchar(char);
 int print_str(va_list);
+int print_int(va_list);
 
 #endif

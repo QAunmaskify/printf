@@ -9,8 +9,10 @@
 int (*get_format(char y))(va_list)
 {
 	f_t format[] = {
-		{'c', print_c},
+		{'c', print_char},
 		{'s', print_str},
+		{'d', print_int},
+		{'i', print_int},
 		{'\0', NULL}
 	};
 
