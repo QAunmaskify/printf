@@ -11,6 +11,9 @@ int print_str(va_list arg)
 	char *str = va_arg(arg, char *);
 	int nbyte = 0;
 
+	if (str == NULL)
+		str = "(NULL)":
+
 	while (*str)
 	{
 		nbyte += _putchar(*str);
