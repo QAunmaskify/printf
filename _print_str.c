@@ -12,7 +12,7 @@ int print_str(va_list arg)
 	int nbyte = 0;
 
 	if (str == NULL)
-		str = "(NULL)":
+		str = "(NULL)";
 
 	while (*str)
 	{
